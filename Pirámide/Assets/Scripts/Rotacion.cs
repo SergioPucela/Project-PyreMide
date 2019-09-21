@@ -8,7 +8,7 @@ public class Rotacion : MonoBehaviour
 
     float destinoRotacion = 0;
     public float tiempoRotacion = 1;
-    Sequence mySequence = DOTween.Sequence();
+    Tween myTween;
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +21,23 @@ public class Rotacion : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
+            if (myTween == null || myTween.IsActive() == false)
+            {
+                destinoRotacion = transform.rotation.eulerAngles.y;
+                myTween = (transform.DORotate(new Vector3(0, destinoRotacion + 90, 0), tiempoRotacion, RotateMode.FastBeyond360));
+                myTween.Play();
+            }
 
-            destinoRotacion = transform.rotation.eulerAngles.y;
-            mySequence.Append(transform.DORotate(new Vector3(0,destinoRotacion + 90,0), tiempoRotacion, RotateMode.FastBeyond360));
         }
 
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            destinoRotacion = transform.rotation.eulerAngles.y;
-            transform.DORotate(new Vector3(0, destinoRotacion -90, 0), tiempoRotacion, RotateMode.FastBeyond360);
+            if (myTween == null || myTween.IsActive() == false)
+            {
+                destinoRotacion = transform.rotation.eulerAngles.y;
+                myTween = (transform.DORotate(new Vector3(0, destinoRotacion - 90, 0), tiempoRotacion, RotateMode.FastBeyond360));
+                myTween.Play();
+            }
         }
     }
 }
