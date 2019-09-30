@@ -5,16 +5,8 @@ using UnityEngine;
 public class CheckPlayerRenderer : MonoBehaviour
 {
 
-    public Transform camara;
-    public SpriteRenderer player_render;
-
-    void Awake()
-    {
-        GameObject player = GameObject.FindWithTag("Player");
-
-        if (player != null)
-            player_render = player.GetComponent<SpriteRenderer>();
-    }
+    public float rotationAngleRender = 45f;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +17,11 @@ public class CheckPlayerRenderer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (camara.rotation.y > 45 || camara.rotation.y < -45)
-            player_render.enabled = false;
+        if (transform.rotation.eulerAngles.y > rotationAngleRender || transform.rotation.eulerAngles.y < -rotationAngleRender)
+        {
+            player.GetComponent<SpriteRenderer>().enabled = false;
+        }
         else
-            player_render.enabled = true;
+            player.GetComponent<SpriteRenderer>().enabled = true;
     }
 }
