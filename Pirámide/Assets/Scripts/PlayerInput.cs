@@ -7,7 +7,7 @@ public class PlayerInput : MonoBehaviour
 
     bool modoVista = false;
     public Rotacion jugador;
-    public RotacionCamara camara;
+    public Rotacion camara;
 
     // Update is called once per frame
     void Update()
