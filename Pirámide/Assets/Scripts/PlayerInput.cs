@@ -5,9 +5,8 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
 
-    bool modoVista = false;
-    public Rotacion jugador;
-    public Rotacion camara;
+    public Rotacion rotacionPiramide;
+    public Rotacion rotacionCamara;
 
     // Update is called once per frame
     void Update()
@@ -19,18 +18,22 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetKeyDown("v"))
         {
-            if (modoVista)
-            {
-                camara.enabled = true;
-                jugador.enabled = false;
-                modoVista = !modoVista;
-            }
+            rotacionPiramide.enabled = !rotacionPiramide.enabled;
+            rotacionCamara.enabled = !rotacionCamara.enabled;
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (rotacionPiramide.enabled)
+                rotacionPiramide.Rotate(true);
             else
-            {
-                jugador.enabled = true;
-                camara.enabled = false;
-                modoVista = !modoVista;
-            }
+                rotacionCamara.Rotate(true);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (rotacionPiramide.enabled)
+                rotacionPiramide.Rotate(false);
+            else
+                rotacionCamara.Rotate(false);
         }
     }
 }

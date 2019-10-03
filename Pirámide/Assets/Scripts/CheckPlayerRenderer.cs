@@ -5,7 +5,8 @@ using UnityEngine;
 public class CheckPlayerRenderer : MonoBehaviour
 {
 
-    public float rotationAngleRender = 45f;
+    public float rotationAngleRenderLeft = 45f;
+    public float rotationAngleRenderRight = 45f;
     public GameObject player;
 
     // Start is called before the first frame update
@@ -17,10 +18,8 @@ public class CheckPlayerRenderer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.rotation.eulerAngles.y > rotationAngleRender || transform.rotation.eulerAngles.y < -rotationAngleRender)
-        {
+        if ((transform.rotation.eulerAngles.y > rotationAngleRenderRight && transform.rotation.eulerAngles.y < 180) || (transform.rotation.eulerAngles.y > 180 && transform.rotation.eulerAngles.y < rotationAngleRenderLeft))
             player.GetComponent<SpriteRenderer>().enabled = false;
-        }
         else
             player.GetComponent<SpriteRenderer>().enabled = true;
     }
