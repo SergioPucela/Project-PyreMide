@@ -5,10 +5,9 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
 
-    public Rotacion rotacionPiramide;
-    public Rotacion rotacionCamara;
+    public RotacionPiramide rotacionPiramide;
+    public RotacionCamara rotacionCamara;
 
-    // Update is called once per frame
     void Update()
     {
         GetInput();
@@ -24,16 +23,20 @@ public class PlayerInput : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (rotacionPiramide.enabled)
+            {
                 rotacionPiramide.Rotate(true);
+            }
             else
-                rotacionCamara.Rotate(true);
+                rotacionCamara.Rotate(false);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (rotacionPiramide.enabled)
+            {
                 rotacionPiramide.Rotate(false);
+            }
             else
-                rotacionCamara.Rotate(false);
+                rotacionCamara.Rotate(true);
         }
     }
 }
