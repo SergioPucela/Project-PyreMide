@@ -7,6 +7,7 @@ public class PlayerInput : MonoBehaviour
 
     public RotacionPiramide rotacionPiramide;
     public RotacionCamara rotacionCamara;
+    public Player player;
 
     void Update()
     {
@@ -37,6 +38,11 @@ public class PlayerInput : MonoBehaviour
             }
             else
                 rotacionCamara.Rotate(true);
+        }
+
+        if(Input.GetButtonDown("Jump") && player.canJump)
+        {
+            player.Jump();
         }
     }
 }
