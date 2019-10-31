@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 711, y: 472}
   m_MaxSize: {x: 18006, y: 14022}
   vertical: 0
-  controlID: 74
+  controlID: 30
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -415,9 +415,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.23731756, y: 1.1828094, z: 0.1934197}
+    m_Target: {x: -0.77245253, y: 2.1298752, z: -2.7280014}
     speed: 2
-    m_Value: {x: 0.23731756, y: 1.1828094, z: 0.1934197}
+    m_Value: {x: -0.77245253, y: 2.1298752, z: -2.7280014}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -450,9 +450,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0.15029626, y: -0.1637957, z: 0.025258152, w: 0.97465074}
   m_Size:
-    m_Target: 17.850414
+    m_Target: 16.490358
     speed: 2
-    m_Value: 17.850414
+    m_Value: 16.490358
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -471,8 +471,8 @@ MonoBehaviour:
     m_DynamicClip: 1
     m_OcclusionCulling: 0
   m_ShowGlobalGrid: 1
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
-  m_LastSceneViewOrtho: 0
+  m_LastSceneViewRotation: {x: 0.15029627, y: -0.16379571, z: 0.025258156, w: 0.97465086}
+  m_LastSceneViewOrtho: 1
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
   m_SceneVisActive: 1
@@ -559,8 +559,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
+      m_SelectedIDs: be330000
+      m_LastClickedID: 13246
       m_ExpandedIDs: 6afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -624,19 +624,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: "C:\\Users\\Administrador\\Documents\\GitHub\\Project-PyreMide\\Pir\xE1mide"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 5c2d0000
-    m_LastClickedID: 11612
+    m_SelectedIDs: 16310000
+    m_LastClickedID: 12566
     m_ExpandedIDs: 000000005c2d00001631000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -758,4 +758,4 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 100

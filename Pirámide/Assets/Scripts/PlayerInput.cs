@@ -44,15 +44,15 @@ public class PlayerInput : MonoBehaviour
             else
                 rotacionCamara.Rotate(true);
         }
-    }
 
-    void GetMovementInput()
-    {
         if (Input.GetButtonDown("Jump") && player.canJump)
         {
             player.Jump();
         }
+    }
 
+    void GetMovementInput()
+    {
         if (Input.GetAxisRaw("Horizontal") == 1)
         {
             player.Move(true);
