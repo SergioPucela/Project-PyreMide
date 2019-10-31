@@ -14,6 +14,11 @@ public class PlayerInput : MonoBehaviour
         GetInput();
     }
 
+    void FixedUpdate()
+    {
+        GetMovementInput();
+    }
+
     void GetInput()
     {
         if (Input.GetKeyDown("v"))
@@ -39,10 +44,22 @@ public class PlayerInput : MonoBehaviour
             else
                 rotacionCamara.Rotate(true);
         }
+    }
 
-        if(Input.GetButtonDown("Jump") && player.canJump)
+    void GetMovementInput()
+    {
+        if (Input.GetButtonDown("Jump") && player.canJump)
         {
             player.Jump();
+        }
+
+        if (Input.GetAxisRaw("Horizontal") == 1)
+        {
+            player.Move(true);
+        }
+        else if (Input.GetAxisRaw("Horizontal") == -1)
+        {
+            player.Move(false);
         }
     }
 }

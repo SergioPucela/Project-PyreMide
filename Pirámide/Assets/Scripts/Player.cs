@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     public bool canJump;
     float hitDistance = 0.1f;
     float spriteOffSet = 0.01f;
-    public float jumpForce = 20;
+    public float jumpForce = 20f;
+    public float movementSpeed = 10f;
 
     private void Awake()
     {
@@ -32,13 +33,11 @@ public class Player : MonoBehaviour
         {
             canJump = true;
             Debug.DrawRay(transform.position - new Vector3(0, sprite.bounds.extents.y + spriteOffSet, 0), down * hitDistance, Color.green);
-            print(canJump);
         }
         else
         {
             canJump = false;
             Debug.DrawRay(transform.position - new Vector3(0, sprite.bounds.extents.y + spriteOffSet, 0), down * hitDistance, Color.blue);
-            print(canJump);
         }
 
         return canJump;
@@ -47,7 +46,19 @@ public class Player : MonoBehaviour
 
     public void Jump()
     {
-        rb2D.AddForce(Vector2.up * jumpForce);
+        rb2D.velocity = Vector2.up * jumpForce;
+    }
+
+    public void Move(bool right)
+    {
+        if (right)
+        {
+            rb2D.velocity = new Vector2(movementSpeed * Time.fixedDeltaTime, rb2D.velocity.y) ;
+        }
+        else
+        {
+            rb2D.velocity = new Vector2(-movementSpeed * Time.fixedDeltaTime, rb2D.velocity.y);
+        }
     }
 
 }
