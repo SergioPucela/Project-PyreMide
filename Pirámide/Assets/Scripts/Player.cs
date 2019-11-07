@@ -6,44 +6,25 @@ public class Player : MonoBehaviour
 {
 
     Rigidbody2D rb2D;
-    Sprite sprite;
-    public bool canJump;
-    float hitDistance = 0.1f;
-    float spriteOffSet = 0.01f;
     public float jumpForce = 20f;
     public float movementSpeed = 10f;
+
+    public bool canJump;
+    public Transform groundCheck;
+    public float checkRadius;
+    public LayerMask whatIsGround;
 
     private void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>().sprite;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        canJump = GetIsGrounded();
+        canJump = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         rb2D.velocity = new Vector2(0, rb2D.velocity.y);
     }
-
-    bool GetIsGrounded()
-    {
-        Vector2 down = transform.TransformDirection(Vector2.down);
-
-        if(Physics2D.Raycast(transform.position - new Vector3(0, sprite.bounds.extents.y + spriteOffSet, 0), down, hitDistance)) 
-        {
-            canJump = true;
-            Debug.DrawRay(transform.position - new Vector3(0, sprite.bounds.extents.y + spriteOffSet, 0), down * hitDistance, Color.green);
-        }
-        else
-        {
-            canJump = false;
-            Debug.DrawRay(transform.position - new Vector3(0, sprite.bounds.extents.y + spriteOffSet, 0), down * hitDistance, Color.blue);
-        }
-
-        return canJump;
-    }
-
 
     public void Jump()
     {
